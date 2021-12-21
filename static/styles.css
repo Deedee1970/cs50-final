@@ -1,0 +1,248 @@
+body {
+    background-color: #CCCCFF;
+    margin-bottom: 150px;
+}
+
+#one,
+#two,
+#three {
+    font-family: Arial;
+    margin: 10px;
+    padding: 15px;
+    width: 30%;
+    height: 520px;
+    background-color: #36454F;
+    color: #EEE;
+}
+
+@media only screen and (max-width: 600px) {
+
+    #one,
+    #two,
+    #three {
+        float: none;
+        width: 100%;
+    }
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 100%;
+    text-align: center;
+}
+
+#logo {
+    height: 150px;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+
+.navbar-nav li {
+    margin-right: 10px;
+}
+
+header {
+    text-align: center;
+    background-color: #7393B3;
+    color: #eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    font-size: 3.7rem;
+    font-weight: bold;
+    text-align: center;
+   
+}
+
+h1 {
+    color: #36454F;
+}
+
+h2 {
+     color: #FFF;
+}
+
+h4 {
+    margin-top: 10px;
+}
+
+img {
+    height: 250px;
+    width: 100%;
+    padding-right: 15px;
+}
+
+#daily {
+    margin-top: 80px;
+    margin-left: 250px;
+    padding: 15px;
+    height: 200px;
+    float: left;
+}
+
+#find_verse {
+    margin-top: 80px;
+    float: right;
+    padding: 15px;
+    margin-right: 350px;
+}
+
+input {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+    background-color: #ECECEC;
+    border: none;
+}
+
+#journal_form {
+    background-color: #5F8575;
+    float: left;
+    width: 30%;
+    padding: 20px;
+    margin-left: 150px;
+    margin-bottom: 150px;
+    border: 1px solid #000;
+}
+
+#prior_entries {
+    margin-top: 100px;
+    float: right;
+    padding: 15px;
+    margin-right: 250px;
+    border: 1px solid black;
+}
+
+#journal {
+    padding: 100px;
+    margin-top: 10px;
+}
+
+#date, #journal {
+    margin-bottom: 10px;
+}
+
+#entry {
+    margin-left: 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #36454F;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 250px;
+}
+
+/* Styling for password requirements */
+#message, #confirm {
+    display: none;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p, #confirm p {
+    padding: 5px 25px;
+    font-size: 15px;
+}
+
+/*Add a green text color and a checkmark when requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "\2713";
+}
+
+/*Add a red text color and an "x" icon when the requirments are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "\274c";
+    font-size: 10px;
+}
+
+.form-group {
+    background-color: #5F8575;
+    width: 55%;
+    padding: 30px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-left: 220px;
+}
+
+.btn btn-dark btn-lg{
+    padding-top: 30px;
+    margin-left: 50px;
+}
+
+#journal_entry:hover, #login:hover, #register:hover {
+    background-color: #FA8072;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+
+
+/*#description {
+    font-size: 2rem;
+    color: #eee;
+}
+
+#title {
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#sub {
+    background-color: darkblue;
+    font-weight: bold;
+}
+
+#thank_you {
+    text-align: center;
+    padding-top: 15px;
+}
+
+
+/*.form-control {
+    display: inline-block;
+    width: auto;
+} */
+
+
+

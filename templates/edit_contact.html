@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Contact
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
+            </div>
+            <h2>My Family & Friends</h2>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/"> Go Home</a></li>
+                <li><a href="/register"> Register</a></li>
+                <li><a href="/verses"> Devotionals</a></li>
+                <li><a href="/journal"> Journal</a></li>
+                <li><a href="/logout"> Logout</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+   
+    <div class="container">
+        <div class="col-md-8 offset-md-2">
+           <form action="/edit_contact/{{contact_to_edit.id}}" method="POST">
+    <div class="form-group">
+ 
+        <input name="first_name" type="text", value="{{contact_to_edit['first_name']}}"><br>
+        <input name="last_name" type="text", value="{{contact_to_edit['last_name']}}"><br>
+        <input name="street1" type="text", value="{{contact_to_edit['street1']}}"><br>
+        <input name="street2" type="text", value="{{contact_to_edit['street2']}}"><br>
+        <input name="city" type="text", value="{{contact_to_edit['city']}}"><br>
+        <input name="state" type="text" max="2", value="{{contact_to_edit['state']}}"><br>
+        <input name="zip" type="text" max="10", value="{{contact_to_edit['zip_code']}}"><br>
+        <input name="phone" type="tel", value="{{contact_to_edit['phone']}}"><br>
+        <input name="email" type="email", value="{{contact_to_edit['email']}}"><br>
+        <label for="notes" >Notes:</label>
+        <textarea autocomplete="off" id="notes" name="notes" rows="10" cols="30", value="{{contact_to_edit['notes']}}"></textarea><br/>
+        <button id="addresses" class="btn btn-dark btn-lg" type="submit">Edit</button>
+    </div>
+   
+</form>
+        </div><!-- Offset -->
+    </div><!-- Container -->
+    <div class="footer">
+        <footer>
+             <div id="foot" class="text-center p-3">
+            Taking a little break from the day.
+
+        </footer>
+    </div>
+
+{% endblock %}
+
+</html>

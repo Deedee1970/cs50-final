@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+My Contact List
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img id="logo" src="static/images/blank-journal.jpg" alt="Logo"></a>
+        </div>
+        <h2>My Contacts</h2>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"> Go Home</a></li>
+            <li><a href="/address_book"> Address Book</a></li>
+            <li><a href="/register"> Register</a></li>
+            <li><a href="/verses"> Devotionals</a></li>
+            <li><a href="/journal"> Journal</a></li>
+            <li><a href="/logout"> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<table class="table table-striped">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address 1</th>
+        <th>Address 2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Phone Number</th>
+        <th>email address</th>
+        <th>Notes</th>
+        <th>Update</th>
+    </tr>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{contact["first_name"]}}</td>
+            <td>{{contact["last_name"]}}</td>
+            <td>{{contact["street1"]}}</td>
+            <td>{{contact["street2"]}}</td>
+            <td>{{contact["city"]}}</td>
+            <td>{{contact["state"]}}</td>
+            <td>{{contact["zip_code"]}}</td>
+            <td>{{contact["phone"]}}</td>
+            <td>{{contact["email"]}}</td>
+            <td>{{contact["notes"]}}</td>
+            <td><a href="/edit_contact/{{contact['id']}}">Edit</a></td>
+        </tr>
+        {% endfor %}
+
+</table>
+
+<div class="footer">
+    <footer>
+        <div id="foot" class="text-center p-3">
+            Taking a little break from the day.
+
+    </footer>
+</div>
+{% endblock %}
+
+</html>
