@@ -1,28 +1,18 @@
 body {
+    font-family: Gothic;
     background-color: #CCCCFF;
     margin-bottom: 150px;
 }
 
 #one,
 #two,
-#three {
-    font-family: Arial;
+#three {    
     margin: 10px;
     padding: 15px;
     width: 30%;
     height: 520px;
     background-color: #36454F;
     color: #EEE;
-}
-
-@media only screen and (max-width: 600px) {
-
-    #one,
-    #two,
-    #three {
-        float: none;
-        width: 100%;
-    }
 }
 
 #container {
@@ -124,15 +114,25 @@ input {
 
 #journal {
     padding: 100px;
-    margin-top: 10px;
-}
-
-#date, #journal {
-    margin-bottom: 10px;
-}
+    margin: 10px;
+   }
 
 #entry {
     margin-left: 20px;
+}
+
+#entry_p {
+    margin-left: 80px;
+    font-size: 1.5rem;
+}
+
+#j_entry {
+    font-family: Mali;
+    font-size: 1.25rem;
+}
+
+#journal_entry:hover, #login:hover, #register:hover {
+    background-color: #FA8072;
 }
 
 .footer {
@@ -198,51 +198,17 @@ input {
     margin-left: 50px;
 }
 
-#journal_entry:hover, #login:hover, #register:hover {
-    background-color: #FA8072;
-}
-
 nav {
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 600px) {
 
-
-/*#description {
-    font-size: 2rem;
-    color: #eee;
+    #one,
+    #two,
+    #three {
+        float: none;
+        width: 100%;
+    }
 }
-
-#title {
-    text-align: center;
-    padding-top: 30px;
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.fa {
-    padding: 20px;
-    font-size: 20px;
-    width: 40px;
-    text-align: center;
-    text-decoration: none;
-}
-
-#sub {
-    background-color: darkblue;
-    font-weight: bold;
-}
-
-#thank_you {
-    text-align: center;
-    padding-top: 15px;
-}
-
-
-/*.form-control {
-    display: inline-block;
-    width: auto;
-} */
-
-
 

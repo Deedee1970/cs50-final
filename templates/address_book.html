@@ -1,58 +1,58 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Address Book
+Address Book
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                  <a class="navbar-brand" href="/"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
-            </div>
-            <h2>My Family & Friends</h2>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"> Go Home</a></li>
-                <li><a href="/address_list">Contacts</a></li>
-                <li><a href="/register"> Register</a></li>
-                <li><a href="/verses"> Devotionals</a></li>
-                <li><a href="/journal"> Journal</a></li>
-                <li><a href="/logout"> Logout</a></li>
-                
-            </ul>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
         </div>
-    </nav>
-   
-    <div class="container">
-        <div class="col-md-8 offset-md-2">
-           <form action="/address_book" method="POST">
-    <div class="form-group">
-        <input autocomplete="off" autofocus  name="fname" placeholder="First Name" type="text"><br>
-        <input autocomplete="off" name="lname" placeholder="Last Name" type="text"><br>
-        <input autocomplete="off" name="street1" placeholder="Street" type="text"><br>
-        <input autocomplete="off" name="street2" placeholder="Street2" type="text"><br>
-        <input autocomplete="off" name="city" placeholder="City" type="text"><br>
-        <input autocomplete="off" name="state"  placeholder="State" type="text" max="2"><br>
-        <input autocomplete="off" name="zip"  placeholder="Zip Code" type="text" max="10"><br>
-        <input autocomplete="off" name="phone" placeholder="Phone Number" type="tel"><br>
-        <input autocomplete="off" name="email" placeholder="email address" type="email"><br>
-        <label for="notes">Notes:</label>
-        
-        <textarea autocomplete="off" id="notes" name="notes" rows="10" cols="30"></textarea><br/>
-         <button id="addresses" class="btn btn-dark btn-lg" type="submit">Submit</button>
-          
+        <h2>Family & Friends</h2>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"> Go Home</a></li>
+            <li><a href="/address_list">Contacts</a></li>
+            <li><a href="/verses"> Devotionals</a></li>
+            <li><a href="/journal"> Journal</a></li>
+            <li><a href="/register"> Register</a></li>
+            <li><a href="/logout"> Logout</a></li>
+
+        </ul>
     </div>
-   
-</form>
-        </div><!-- Offset -->
-    </div><!-- Container -->
-    <div class="footer">
-        <footer>
-             <div id="foot" class="text-center p-3">
+</nav>
+
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <form action="/address_book" method="POST">
+            <div class="form-group">
+                <input autocomplete="off" autofocus name="fname" placeholder="First Name" type="text"><br>
+                <input autocomplete="off" name="lname" placeholder="Last Name" type="text"><br>
+                <input autocomplete="off" name="street1" placeholder="Street" type="text"><br>
+                <input autocomplete="off" name="street2" placeholder="Street2" type="text"><br>
+                <input autocomplete="off" name="city" placeholder="City" type="text"><br>
+                <input autocomplete="off" name="state" placeholder="State" type="text" max="2"><br>
+                <input autocomplete="off" name="zip" placeholder="Zip Code" type="text" max="10"><br>
+                <input autocomplete="off" name="phone" placeholder="Phone Number" type="tel"><br>
+                <input autocomplete="off" name="email" placeholder="email address" type="email"><br>
+                <label for="notes">Notes:</label>
+
+                <textarea autocomplete="off" id="notes" name="notes" rows="10" cols="30"></textarea><br />
+                <button id="addresses" class="btn btn-dark btn-lg" type="submit">Submit</button>
+
+            </div>
+
+        </form>
+    </div><!-- Offset -->
+</div><!-- Container -->
+<div class="footer">
+    <footer>
+        <div id="foot" class="text-center p-3">
             Taking a little break from the day.
 
-        </footer>
-    </div>
+    </footer>
+</div>
 
 {% endblock %}
 

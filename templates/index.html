@@ -1,62 +1,63 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Home
+Home
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-sm bg-med navbar-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
-            </div>
-            <h1>My Quiet Place</h1>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login"> Login </a></li>
-                <li><a href="/register"> Register</a></li>
-                <li><a href="/logout"> Logout</a></li>
-                <li><a href="/address_list">My Contacts</a></li>
-            </ul>
+<nav class="navbar navbar-expand-sm bg-med navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
+        </div>
+        <h1>My Quiet Place</h1>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login"> Login </a></li>
+            <li><a href="/address_list">Contacts</a></li>
+            <li><a href="/register"> Register</a></li>
+            <li><a href="/logout"> Logout</a></li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div id="container">
+
+    <div id="one">
+        <div><button class="btn btn-success btn-lg btn-light" role="button"> <a href="/verses"><img
+                        src="static/images/Holy_Bible.jpg" alt="Bible" class="contain"></a></button>
+            <h4>My Devotionals</h4>
+            <script type="text/javascript">
+                document.write("<iframe src=\"https://www.kingjamesbibleonline.org/popular-bible-verses-widget.php\" style=\"width: 200px; height: 240px; border: 0px solid #ffffff;\"></iframe>");</script>
+        </div>
+    </div>
+
+    <div id="two">
+        <div><button class="btn btn-success btn-lg btn-light" role="button"> <a href="/address_book"><img
+                        src="static/images/address_book_pic.jpg" alt="Bible" class="contain"></a></button>
+            <h4>My Address Book</h4>
 
         </div>
-    </nav>
-    
-    <div id="container">
+    </div>
 
-        <div id="one">
-           <div><button class="btn btn-success btn-lg btn-light" role="button"> <a href="/verses"><img src="static/images/Holy_Bible.jpg"
-                alt="Bible" class="contain"></a></button>
-                 <h4>My Devotionals</h4>    
-        <script type="text/javascript">
-            document.write("<iframe src=\"https://www.kingjamesbibleonline.org/popular-bible-verses-widget.php\" style=\"width: 200px; height: 240px; border: 0px solid #ffffff;\"></iframe>");</script>         
-            </div>
-       </div>
-        
-        <div id="two">
-            <div><button class="btn btn-success btn-lg btn-light" role="button"> <a href="/address_book"><img src="static/images/address_book_pic.jpg"
-                alt="Bible" class="contain"></a></button>
-                 <h4>My Address Book</h4>    
-         
-            </div>
+    <div id="three">
+        <div><button class="btn btn-success btn-lg btn-light" role="button"> <a href="/journal"><img
+                        src="static/images/journal.jpg" alt="Journal" class="contain"></a></button>
+            <h4>My personal journal</h4>
+
         </div>
-       
-        <div id="three">
-            <div><button class="btn btn-success btn-lg btn-light" role="button"> <a href="/journal"><img src="static/images/journal.jpg"
-                alt="Journal" class="contain"></a></button>
-                 <h4>My personal journal</h4>
-                
-            </div>
-        </div>
-        
+    </div>
+
 
     <div class="footer">
         <footer>
             <div id="foot" class="text-center p-3">
-            Taking a little break from the day.
+                Taking a little break from the day.
 
         </footer>
     </div>
 
-{% endblock %}
+    {% endblock %}
 
-</html>
+    </html>

@@ -1,48 +1,45 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    My Journal
+My Journal
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand"><img id="logo"
-                        src="static/images/blank-journal.jpg" alt="Logo"></a>
-            </div>
-            <h2>My Journal</h2>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"> Go Home</a></li>
-                <li><a href="/register"> Register</a></li>
-                <li><a href="/verses"> Devotionals</a></li>
-                <li><a href="/address_book">Address Book</a></li>
-                <li><a href="/logout"> Logout</a></li>
-            </ul>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img id="logo" src="static/images/blank-journal.jpg" alt="Logo"></a>
         </div>
-    </nav>
-    
-    <div id="journal_form">
-        <form action="/journal" method="POST">
-        <!--<label for="date">Today's Date:</label>
-        <input type="date" id="date" name="date"/><br/>
-        <label for="entry">Thoughts, prayers, & ideas for today:</label><br> -->
-        <textarea id="entry" name="entry" rows="10" cols="30"></textarea><br/>
+        <h2>My Journal</h2>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"> Go Home</a></li>
+            <li><a href="/address_book">Address Book</a></li>
+            <li><a href="/address_list">Contacts</a></li>
+            <li><a href="/verses"> Devotionals</a></li>
+            <li><a href="/register"> Register</a></li>
+            <li><a href="/logout"> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<p id="entry_p">Thoughts, prayers, & ideas for today:</p>
+<div id="journal_form">
+    <form action="/journal" method="POST">
+        <textarea id="entry" name="entry" rows="10" cols="30"></textarea><br />
         <button id="journal_entry" type="submit" class="btn btn-dark btn-lg">Submit</button>
     </form>
-    </div>
-    
-    <div id="prior_entries">
-        <h4>Access previous entries <a href="/entries">here</a></h4>
-    </div>
+</div>
 
-    <div class="footer">
-        <footer>
-            <div id="foot" class="text-center p-3">
+<div id="prior_entries">
+    <h4>Access previous entries <a href="/entries">here</a></h4>
+</div>
+
+<div class="footer">
+    <footer>
+        <div id="foot" class="text-center p-3">
             Taking a little break from the day.
 
-        </footer>
-    </div>
+    </footer>
+</div>
 {% endblock %}
 
 </html>

@@ -1,46 +1,47 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Journal Entries
+Journal Entries
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand"><img id="logo"
-                        src="static/images/bible-verses-about-love.png" alt="Bible"></a>
-            </div>
-            <h2>Bible Verses</h2>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"> Go Home</a></li>
-                <li><a href="/login"> Login</a></li>
-                <li><a href="/register"> Register</a></li>
-                <li><a href="/journal">Journal</a></li>
-                <li><a href="/logout"> Logout</a></li>
-            </ul>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand"><img id="logo" src="static/images/bible-verses-about-love.png" alt="Bible"></a>
         </div>
-    </nav>
-    
-    <div id="daily">
-        <h4>Your Daily Verse</h4>
-        <script type="text/javascript">
-            document.write("<iframe src=\"https://www.kingjamesbibleonline.org/popular-bible-verses-widget.php\" style=\"width: 200px; height: 240px; border: 0px solid #ffffff;\"></iframe>");</script>         
-    </div>
+        <h2>Bible Verses</h2>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"> Go Home</a></li>
+            <li><a href="/address_book"> Address Book</a></li>
+            <li><a href="/address_list">Contacts</a></li>
+            <li><a href="/journal">Journal</a></li>
+            <li><a href="/register"> Register</a></li>
 
-    <div id="find_verse">   
-        <h4>Find a Verse</h4>    
-        <script type="text/javascript" src="https://www.kingjamesbibleonline.org/biblesearchwidget.js"></script>
+            <li><a href="/logout"> Logout</a></li>
+        </ul>
     </div>
+</nav>
 
-  
- <div class="footer">
-        <footer>
-            <div id="foot" class="text-center p-3">
+<div id="daily">
+    <h4>Your Daily Verse</h4>
+    <script type="text/javascript">
+        document.write("<iframe src=\"https://www.kingjamesbibleonline.org/popular-bible-verses-widget.php\" style=\"width: 200px; height: 240px; border: 0px solid #ffffff;\"></iframe>");</script>
+</div>
+
+<div id="find_verse">
+    <h4>Find a Verse</h4>
+    <script type="text/javascript" src="https://www.kingjamesbibleonline.org/biblesearchwidget.js"></script>
+</div>
+
+
+<div class="footer">
+    <footer>
+        <div id="foot" class="text-center p-3">
             Taking a little break from the day.
 
-        </footer>
-    </div>
+    </footer>
+</div>
 {% endblock %}
 
 </html>

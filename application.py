@@ -1,13 +1,10 @@
 import os
 
 from flask import Flask, flash, redirect, render_template, request, session
-from flask.config import ConfigAttribute
 from flask_sqlalchemy import SQLAlchemy
-import sqlite3
 from functools import wraps
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-from helpers import apology
 from datetime import datetime, timedelta
 
 
@@ -106,7 +103,8 @@ def journal():
 
         # Confirm journal entry
         if not entry:
-            return ("Nothing entered for today.")
+            flash(f"Nothing entered for today \U0001F928!")
+            return redirect("/")
 
          # Insert journal entry into datebase
         ent = entries(user_id=user_id, date=date, journal_entry=entry)
@@ -114,8 +112,7 @@ def journal():
         db.session.add(ent)
         db.session.commit()
 
-        flash("Today's entry has been submitted")
-
+        flash(f"Today's entry has been submitted \U0001F600!")
         return redirect("/")
 
     else:
@@ -129,6 +126,20 @@ def journal_entries():
     entry = entries.query.filter_by(user_id=user_id).all()
 
     return render_template("entries.html", entries=entry)
+
+
+@app.route('/delete_entry/<int:id>')
+def delete_entry(id):
+    entry_to_delete = entries.query.get_or_404(id)
+    try:
+        db.session.delete(entry_to_delete)
+        db.session.commit()
+        flash(f"Entry has been deleted \U0001F600!")
+        return redirect("/")
+
+    except:
+        flash(f"There was a problem deleting that entry \U0001F928!")
+        return redirect("/")
 
 
 @app.route("/address_book", methods=["GET", "POST"])
@@ -150,13 +161,16 @@ def address():
 
         # Confirm necessary info provided
         if not fname:
-            return ("Please provide first name.")
+            flash(f"Please provide first name \U0001F928!")
+            return render_template("address_book.html")
 
         if not street1:
-            return ("Please provide street address.")
+            flash(f"Please provide street address \U0001F928!")
+            return render_template("address_book.html")
 
         if not phone:
-            return ("Please enter phone number")
+            flash(f"Please provide phone number \U0001F928!")
+            return render_template("address_book.html")
 
         # Insert contact info into datebase
 
@@ -166,8 +180,7 @@ def address():
         db.session.add(contact)
         db.session.commit()
 
-        flash("Contact has been added")
-
+        flash(f"Contact has been added \U0001F600!")
         return redirect("/")
 
     else:
@@ -186,12 +199,12 @@ def address_list():
 
 # Users can update their contacts
 
+
 @app.route("/edit_contact/<int:id>", methods=["GET", "POST"])
 @login_required
 def edit(id):
     contact_to_edit = Addresses.query.get_or_404(id)
     if request.method == "POST":
-        print(contact_to_edit)
         contact_to_edit.first_name = request.form.get("first_name")
         contact_to_edit.last_name = request.form.get("last_name")
         contact_to_edit.street1 = request.form.get("street1")
@@ -203,17 +216,44 @@ def edit(id):
         contact_to_edit.email = request.form.get("email")
         contact_to_edit.notes = request.form.get("notes")
 
+        # Confirm necessary info provided
+        if not contact_to_edit.first_name:
+            flash(f"Please provide first name \U0001F928!")
+            return render_template("edit_contact.html", contact_to_edit=contact_to_edit, id=id)
+
+        if not contact_to_edit.street1:
+            flash(f"Please provide street address \U0001F928!")
+            return render_template("edit_contact.html", contact_to_edit=contact_to_edit, id=id)
+
+        if not contact_to_edit.phone:
+            flash(f"Please provide phone number \U0001F928!")
+            return render_template("edit_contact.html", contact_to_edit=contact_to_edit, id=id)
+
         try:
             db.session.commit()
-            flash("Contact has been edited!")
+            flash(f"Contact has been edited \U0001F600!")
             return render_template("edit_contact.html", contact_to_edit=contact_to_edit, id=id)
 
         except:
-            flash("Sorry, something went wrong! Contact not edited!")
+            flash(f"Sorry, something went wrong! Contact not edited \U0001F928!")
             return redirect("/")
 
     else:
         return render_template("edit_contact.html", contact_to_edit=contact_to_edit, id=id)
+
+
+@app.route('/delete/<int:id>')
+def delete(id):
+    contact_to_delete = Addresses.query.get_or_404(id)
+    try:
+        db.session.delete(contact_to_delete)
+        db.session.commit()
+        flash(f"Contact has been deleted \U0001F600!")
+        return redirect("/")
+
+    except:
+        flash(f"Oops! There seems to be a problem. Contact NOT deleted \U0001F928!")
+        return redirect("/")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -230,7 +270,7 @@ def login():
         user = users.query.filter_by(username=name).first()
 
         if not user or not check_password_hash(user.hash, hash):
-            flash("Username and/or password invalid, please try again.")
+            flash(f"Username and/or password invalid, please try again \U0001F928!")
             return render_template("login.html")
 
         # Remember which user has logged in
@@ -279,9 +319,6 @@ def register():
         db.session.add(new_user)
         db.session.commit()
 
-        # Remember which user has logged in
-        session["user_id"] = user.id
-
         # Let users know they are registered
         flash(f"You are registered \U0001F600!")
         return redirect("/")
@@ -290,6 +327,18 @@ def register():
         return render_template("register.html")
 
 
+def errorhandler(e):
+    """Handle error"""
+    if not isinstance(e, HTTPException):
+        e = InternalServerError()
+        flash(e.name, e.code)
+        return redirect("/")
+
+
+# Listen for errors
+for code in default_exceptions:
+    app.errorhandler(code)(errorhandler)
+
 if __name__ == "__main__":
     db.create_all()
-    app.run(debug=True)
+    app.run()

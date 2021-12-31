@@ -14,9 +14,10 @@ Journal Entries
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/"> Go Home</a></li>
             <li><a href="/address_book"> Address Book</a></li>
-            <li><a href="/register"> Register</a></li>
+            <li><a href="/address_list">Contacts</a></li>
             <li><a href="/verses"> Devotionals</a></li>
             <li><a href="/journal"> Journal</a></li>
+            <li><a href="/register"> Register</a></li>
             <li><a href="/logout"> Logout</a></li>
         </ul>
     </div>
@@ -26,13 +27,15 @@ Journal Entries
     <tr>
 
         <th>Journal Entry</th>
+        <th>Thoughts for the Day</th>
+        <th>Update</th>
     </tr>
     <tbody>
         {% for entry in entries %}
         <tr>
             <td>{{entry["date"]}}</td>
-            <td>{{entry["journal_entry"]}}</td>
-
+            <td id="j_entry">{{entry["journal_entry"]}}</td>
+            <td><a href="/delete_entry/{{entry['id']}}">Delete</a></td>
             {% endfor %}
 
 </table>

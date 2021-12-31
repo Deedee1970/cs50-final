@@ -14,9 +14,9 @@ My Contact List
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/"> Go Home</a></li>
             <li><a href="/address_book"> Address Book</a></li>
-            <li><a href="/register"> Register</a></li>
             <li><a href="/verses"> Devotionals</a></li>
             <li><a href="/journal"> Journal</a></li>
+            <li><a href="/register"> Register</a></li>
             <li><a href="/logout"> Logout</a></li>
         </ul>
     </div>
@@ -50,6 +50,7 @@ My Contact List
             <td>{{contact["email"]}}</td>
             <td>{{contact["notes"]}}</td>
             <td><a href="/edit_contact/{{contact['id']}}">Edit</a></td>
+            <td><a href="/delete/{{contact['id']}}">Delete</a></td>
         </tr>
         {% endfor %}
 

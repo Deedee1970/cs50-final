@@ -1,69 +1,69 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Register
+Register
 {% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
-            </div>
-            <h2>My Quiet Place</h2>
-            <ul class="nav navbar-nav navbar-right">
-                 <li><a href="/"> Go Home</a></li>
-                 <li><a href="/login"> Log In</a></li>
-                <li><a href="/logout"> Logout</a></li>
-            </ul>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img id="logo" src="static/images/peaceful.jpeg" alt="Logo"></a>
         </div>
-    </nav>
-   <header>
-       <h3>Register to Access Your Journal</h3>
-   </header>
-    <div class="container">
-        <div class="col-md-8 offset-md-2">
-            <form class="register" action="/register" method="post">
-               <div class="form-group">
-        <input autocomplete="off" autofocus name="username" placeholder="Username" type="text"><br>
-   
-        <input  id="password" name="password" placeholder="Password" type="password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-            title="Must contain at least one number, one uppercase letter, one lowercase letter, and 6 or more characters"
-            required><br>
-   
-        <input  id="confirmation" name="confirmation" placeholder="Confirm Password" type="password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must match password"> <br>
-          <button id="register" class="btn btn-dark btn-lg" type="submit">Register</button>   
+        <h2>My Quiet Place</h2>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"> Go Home</a></li>
+            <li><a href="/login"> Log In</a></li>
+            <li><a href="/logout"> Logout</a></li>
+        </ul>
     </div>
-   
-</form>
+</nav>
+<header>
+    <h3>Register to Access Your Journal & Address Book</h3>
+</header>
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <form class="register" action="/register" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus name="username" placeholder="Username" type="text"><br>
 
-<div id="message">
-    <h4>Password must contain the following:</h4>
-    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-    <p id="number" class="invalid">A <b>number</b></p>
-    <p id="length" class="invalid">A <b>Minimum</b> of 6 characters</p>
-</div>
+                <input id="password" name="password" placeholder="Password" type="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                    title="Must contain at least one number, one uppercase letter, one lowercase letter, and 6 or more characters"
+                    required><br>
 
-<div id="confirm">
-    <h4>Password must contain the following:</h4>
-    <p id="letter1" class="invalid">A <b>lowercase</b> letter</p>
-    <p id="capital1" class="invalid">A <b>capital (uppercase)</b> letter</p>
-    <p id="number1" class="invalid">A <b>number</b></p>
-    <p id="length1" class="invalid">A <b>Minimum</b> of 6 characters</p>
-</div>
-<script src="/static/register.js"></script>
-       
-    <div class="footer">
-        <footer>
-            <div id="foot" class="text-center p-3">
-            Taking a little break from the day.
+                <input id="confirmation" name="confirmation" placeholder="Confirm Password" type="password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must match password"> <br>
+                <button id="register" class="btn btn-dark btn-lg" type="submit">Register</button>
+            </div>
 
-        </footer>
-    </div>
+        </form>
 
-{% endblock %}
+        <div id="message">
+            <h4>Password must contain the following:</h4>
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">A <b>Minimum</b> of 6 characters</p>
+        </div>
 
-</html>
+        <div id="confirm">
+            <h4>Password must contain the following:</h4>
+            <p id="letter1" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital1" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number1" class="invalid">A <b>number</b></p>
+            <p id="length1" class="invalid">A <b>Minimum</b> of 6 characters</p>
+        </div>
+        <script src="/static/register.js"></script>
+
+        <div class="footer">
+            <footer>
+                <div id="foot" class="text-center p-3">
+                    Taking a little break from the day.
+
+            </footer>
+        </div>
+
+        {% endblock %}
+
+        </html>
